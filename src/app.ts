@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import config from "./config";
 import cookieParser from "cookie-parser";
-// import { authRoutes } from "./modules/auth/auth.route";
+import { authRoutes } from "./modules/auth/auth.route";
 
 const app: Application = express();
 
@@ -15,7 +15,7 @@ app.use(
 );
 
 // passing the raw middleware before the json() middleware
-app.use("/api/subscription/webhook", express.raw({ type: "application/json" }))
+app.use("/api/subscription/webhook", express.raw({ type: "application/json" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +25,6 @@ app.get("/", (req: Request, res: Response) => {
   res.send("hello world");
 });
 
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 export default app;
