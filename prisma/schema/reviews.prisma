@@ -1,0 +1,17 @@
+model Reviews {
+    id String @id @default(uuid())
+
+    customerId String
+    customer   Users   @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+    gearItemsId String
+    gearItems   GearItems @relation(fields: [gearItemsId], references: [id], onDelete: Cascade)
+
+    rentalOrderId String
+    rentalOrder   RentalOrders @relation(fields: [rentalOrderId], references: [id], onDelete: Cascade)
+
+    rating  Rating
+    comment String @db.Text
+
+    createdAt DateTime @default(now())
+}

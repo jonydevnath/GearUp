@@ -1,0 +1,33 @@
+enum Role {
+    CUSTOMER
+    PROVIDER
+    ADMIN
+}
+
+enum userStatus {
+    ACTIVE
+    SUSPENDED
+}
+
+enum orderStatus {
+    PLACED
+    CONFIRMED
+    PAID
+    PICKED_UP
+    RETURNED
+    CANCELLED
+}
+
+enum paymentStatus {
+    PENDING
+    COMPLETED
+    FAILED
+}
+
+enum Rating {
+    ONE   @map("1")
+    TWO   @map("2")
+    THREE @map("3")
+    FOUR  @map("4")
+    FIVE  @map("5")
+}
