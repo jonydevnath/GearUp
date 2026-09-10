@@ -25,7 +25,7 @@ const addGearInDB = async (payload: IAddGearPayload, userId: string) => {
 const updateGearInDB = async (
   gearId: string,
   payload: IAddGearPayload,
-  userId: string,
+  providerId: string,
 ) => {
   const gearItems = await prisma.gearItems.findUniqueOrThrow({
     where: {
@@ -33,7 +33,7 @@ const updateGearInDB = async (
     },
   });
 
-  if (gearItems.providerId !== userId) {
+  if (gearItems.providerId !== providerId) {
     throw new Error("You are not the owner of this gear!");
   }
 
@@ -47,7 +47,26 @@ const updateGearInDB = async (
   return result;
 };
 
+const deleteGearInDB = async (gearId: string, providerId: string) => {
+  const gearItems = await prisma.gearItems.findUniqueOrThrow({
+    where: {
+      id: gearId,
+    },
+  });
+
+  if (gearItems.providerId !== providerId) {
+    throw new Error("You are not the owner of this gear!");
+  }
+
+  await prisma.gearItems.delete({
+    where: {
+      id: gearId,
+    },
+  });
+};
+
 export const providerService = {
   addGearInDB,
   updateGearInDB,
+  deleteGearInDB,
 };

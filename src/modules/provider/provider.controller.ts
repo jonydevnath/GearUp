@@ -29,11 +29,15 @@ const updateGear = catchAsync(
 
     if (!gearId) {
       throw new Error("Gear Id Required In Params");
-    }  
+    }
 
     const payload = req.body;
 
-    const result = await providerService.updateGearInDB(gearId as string, payload, providerId as string);
+    const result = await providerService.updateGearInDB(
+      gearId as string,
+      payload,
+      providerId as string,
+    );
 
     sendResponse(res, {
       success: true,
@@ -46,7 +50,30 @@ const updateGear = catchAsync(
   },
 );
 
+const deleteGear = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const providerId = req.user?.id;
+    const gearId = req.params.gearId;
+
+    if (!gearId) {
+      throw new Error("Gear Id Required In Params");
+    }
+
+    await providerService.deleteGearInDB(
+      gearId as string,
+      providerId as string,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Gear Deleted successfully",
+    });
+  },
+);
+
 export const providerController = {
   addGear,
   updateGear,
+  deleteGear,
 };
