@@ -22,6 +22,32 @@ const addGearInDB = async (payload: IAddGearPayload, userId: string) => {
   return result;
 };
 
+const updateGearInDB = async (
+  gearId: string,
+  payload: IAddGearPayload,
+  userId: string,
+) => {
+  const gearItems = await prisma.gearItems.findUniqueOrThrow({
+    where: {
+      id: gearId,
+    },
+  });
+
+  if (gearItems.providerId !== userId) {
+    throw new Error("You are not the owner of this gear!");
+  }
+
+  const result = await prisma.gearItems.update({
+    where: {
+      id: gearId,
+    },
+    data: payload,
+  });
+
+  return result;
+};
+
 export const providerService = {
   addGearInDB,
+  updateGearInDB,
 };

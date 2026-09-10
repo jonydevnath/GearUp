@@ -6,5 +6,6 @@ import { providerController } from "./provider.controller";
 const router = Router();
 
 router.post("/gear", auth(Role.PROVIDER), providerController.addGear);
+router.put("/gear/:gearId", auth(Role.PROVIDER), providerController.updateGear);
 
 export const providerRoutes = router;

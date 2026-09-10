@@ -22,6 +22,31 @@ const addGear = catchAsync(
   },
 );
 
+const updateGear = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const providerId = req.user?.id;
+    const gearId = req.params.gearId;
+
+    if (!gearId) {
+      throw new Error("Gear Id Required In Params");
+    }  
+
+    const payload = req.body;
+
+    const result = await providerService.updateGearInDB(gearId as string, payload, providerId as string);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Gear Updated successfully",
+      data: {
+        result,
+      },
+    });
+  },
+);
+
 export const providerController = {
   addGear,
+  updateGear,
 };
