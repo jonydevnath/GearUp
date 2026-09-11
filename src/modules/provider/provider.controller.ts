@@ -6,10 +6,10 @@ import { providerService } from "./provider.service";
 
 const addGear = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const id = req.user?.id;
+    const providerId = req.user?.id;
     const payload = req.body;
 
-    const result = await providerService.addGearInDB(payload, id as string);
+    const result = await providerService.addGearInDB(payload, providerId as string);
 
     sendResponse(res, {
       success: true,

@@ -1,4 +1,4 @@
-export interface IAddGearPayload {
+export interface IGearPayload {
   categoryId: string;
   title: string;
   description: string;

@@ -3,7 +3,7 @@ import { Role } from "../../../generated/prisma/enums";
 import { auth } from "../../middlewares/auth";
 import { providerController } from "./provider.controller";
 
-const router = Router();
+export const router = Router();
 
 router.post("/gear", auth(Role.PROVIDER), providerController.addGear);
 router.put("/gear/:gearId", auth(Role.PROVIDER), providerController.updateGear);

@@ -1,10 +1,10 @@
 import { prisma } from "../../lib/prisma";
-import { IAddGearPayload } from "./provider.interface";
+import { IGearPayload } from "./provider.interface";
 
-const addGearInDB = async (payload: IAddGearPayload, userId: string) => {
+const addGearInDB = async (payload: IGearPayload, providerId: string) => {
   const user = await prisma.users.findUniqueOrThrow({
     where: {
-      id: userId,
+      id: providerId,
     },
   });
 
@@ -14,7 +14,7 @@ const addGearInDB = async (payload: IAddGearPayload, userId: string) => {
 
   const result = await prisma.gearItems.create({
     data: {
-      providerId: userId,
+      providerId: providerId,
       ...payload,
     },
   });
@@ -24,7 +24,7 @@ const addGearInDB = async (payload: IAddGearPayload, userId: string) => {
 
 const updateGearInDB = async (
   gearId: string,
-  payload: IAddGearPayload,
+  payload: IGearPayload,
   providerId: string,
 ) => {
   const gearItems = await prisma.gearItems.findUniqueOrThrow({

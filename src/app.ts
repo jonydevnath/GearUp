@@ -4,6 +4,7 @@ import config from "./config";
 import cookieParser from "cookie-parser";
 import { authRoutes } from "./modules/auth/auth.route";
 import { providerRoutes } from "./modules/provider/provider.route";
+import { categoriesRoutes } from "./modules/categories/categories.route";
 
 const app: Application = express();
 
@@ -28,5 +29,6 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/provider", providerRoutes);
+app.use("/api/categories", categoriesRoutes);
 
 export default app;
