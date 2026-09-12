@@ -25,6 +25,32 @@ const addRentals = catchAsync(
   },
 );
 
+export const updateRentalStatus = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { rentalId } = req.params;
+    const { status } = req.body;
+    const user = req.user; 
+
+    if (!rentalId) {
+      throw new Error("Rental ID is required in params");
+    }
+
+    const result = await rentalsService.updateRentalStatusInDB(
+      rentalId as string,
+      status,
+      user as { id: string; role: string }
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: `Rental order status updated to ${status} successfully`,
+      data: result,
+    });
+  }
+);
+
 export const ordersController = {
   addRentals,
+  updateRentalStatus,
 };
