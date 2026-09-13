@@ -6,6 +6,7 @@ import { authRoutes } from "./modules/auth/auth.route";
 import { providersRoutes } from "./modules/providers/providers.route";
 import { categoriesRoutes } from "./modules/categories/categories.route";
 import { ordersRoutes } from "./modules/rentals/rentals.route";
+import { adminRoutes } from "./modules/admin/admin.route";
 
 const app: Application = express();
 
@@ -32,5 +33,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/providers", providersRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/rentals", ordersRoutes);
+app.use("/api/admin", adminRoutes);
 
 export default app;
