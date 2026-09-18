@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import config from "../../config";
 import { prisma } from "../../lib/prisma";
 import { stripe } from "../../lib/stripe";
-import { ICheckoutSessionResult } from "./payments.interface";
+import { ICheckoutSessionResult, TStripeCheckoutSession } from "./payments.interface";
 
 const createCheckoutSessionInDB = async (
   rentalOrderId: string,
@@ -90,6 +90,89 @@ const createCheckoutSessionInDB = async (
   };
 };
 
+const handleCheckoutSessionCompleted = async (
+  session: TStripeCheckoutSession,
+) => {
+  const rentalOrderId =
+    session.metadata?.rentalOrderId || session.client_reference_id;
+
+  if (!rentalOrderId) {
+    throw new Error("Missing rentalOrderId on Stripe checkout session");
+  }
+
+  const order = await prisma.rentalOrders.findUnique({
+    where: { id: rentalOrderId },
+  });
+
+  if (!order) {
+    throw new Error("Rental order not found for completed checkout session");
+  }
+
+  if (order.status === "PAID") {
+    return { alreadyProcessed: true, rentalOrderId };
+  }
+
+  const paymentIntentId =
+    typeof session.payment_intent === "string"
+      ? session.payment_intent
+      : session.payment_intent?.id;
+
+  const transactionId = paymentIntentId || session.id;
+  const amountInDollars = (session.amount_total ?? 0) / 100;
+  const paymentMethod = session.payment_method_types?.[0] || "card";
+
+  await prisma.$transaction(async (tx) => {
+    await tx.rentalOrders.update({
+      where: { id: rentalOrderId },
+      data: { status: "PAID" },
+    });
+
+    await tx.payments.upsert({
+      where: { rentalOrderId },
+      update: {
+        transactionId,
+        amount: amountInDollars,
+        paymentMethod,
+        status: "COMPLETED",
+        paidAt: new Date(),
+      },
+      create: {
+        rentalOrderId,
+        transactionId,
+        amount: amountInDollars,
+        paymentMethod,
+        status: "COMPLETED",
+        paidAt: new Date(),
+      },
+    });
+  });
+
+  return { alreadyProcessed: false, rentalOrderId };
+};
+
+const handleStripeWebhook = async (
+  rawBody: Buffer,
+  signature: string | string[] | undefined,
+) => {
+  if (!signature) {
+    throw new Error("Missing Stripe signature header");
+  }
+
+  const event = stripe.webhooks.constructEvent(
+    rawBody,
+    signature,
+    config.stripe_webhook_secret,
+  ); 
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    await handleCheckoutSessionCompleted(session);
+  }
+
+  return { received: true, type: event.type };
+};
+
 export const paymentsService = {
   createCheckoutSessionInDB,
+  handleStripeWebhook,
 };
