@@ -217,8 +217,64 @@ const getPaymentsFromDB = async (user: IAuthUser) => {
   });
 };
 
+const getPaymentByRentalOrderIdFromDB = async (
+  rentalOrderId: string,
+  user: IAuthUser,
+) => {
+  if (!rentalOrderId) {
+    throw new Error("rentalOrderId is required");
+  }
+
+  const payment = await prisma.payments.findUnique({
+    where: { rentalOrderId },
+    include: {
+      rentalOrder: {
+        include: {
+          rentalOrderItems: {
+            include: {
+              GearItems: {
+                select: {
+                  id: true,
+                  title: true,
+                  providerId: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!payment) {
+    throw new Error("Payment not found for this rental order");
+  }
+
+  if (user.role === "ADMIN") {
+    return payment;
+  }
+
+  if (user.role === "CUSTOMER") {
+    if (payment.rentalOrder.customerId !== user.id) {
+      throw new Error("Unauthorized payment access");
+    }
+    return payment;
+  }
+
+  const ownsGearOnOrder = payment.rentalOrder.rentalOrderItems.some(
+    (item) => item.GearItems.providerId === user.id,
+  );
+
+  if (!ownsGearOnOrder) {
+    throw new Error("Unauthorized payment access");
+  }
+
+  return payment;
+};
+
 export const paymentsService = {
   createCheckoutSessionInDB,
   handleStripeWebhook,
   getPaymentsFromDB,
+  getPaymentByRentalOrderIdFromDB,
 };

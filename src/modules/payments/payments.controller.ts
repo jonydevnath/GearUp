@@ -55,8 +55,27 @@ const getPayments = catchAsync(
   },
 );
 
+const getPaymentByRentalOrderId = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const rentalOrderId = req.params.rentalOrderId as string;
+
+    const result = await paymentsService.getPaymentByRentalOrderIdFromDB(
+      rentalOrderId,
+      req.user!,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Payment details retrieved successfully",
+      data: result,
+    });
+  },
+);
+
 export const paymentsController = {
   createCheckoutSession,
   handleWebhook,
   getPayments,
+  getPaymentByRentalOrderId,
 };

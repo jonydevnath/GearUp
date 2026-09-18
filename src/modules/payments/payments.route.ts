@@ -19,4 +19,10 @@ router.get(
   paymentsController.getPayments,
 );
 
+router.get(
+  "/:rentalOrderId",
+  auth(),
+  paymentsController.getPaymentByRentalOrderId,
+);
+
 export const paymentsRoutes = router;
