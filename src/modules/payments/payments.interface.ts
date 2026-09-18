@@ -6,3 +6,10 @@ export interface ICheckoutSessionResult {
 }
 
 export type TStripeCheckoutSession = Stripe.Checkout.Session;
+
+export interface IAuthUser {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
