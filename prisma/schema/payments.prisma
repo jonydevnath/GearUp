@@ -10,4 +10,6 @@ model Payments {
     status        paymentStatus @default(PENDING)
     paidAt        DateTime?     @db.Timestamp()
     createdAt     DateTime      @default(now())
+
+    @@map("payments")
 }
