@@ -76,6 +76,21 @@ const deleteGear = catchAsync(
   },
 );
 
+const getProviderOrders = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const result = await providersService.getProviderOrdersFromDB(
+      req.user!.id,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Provider rental orders retrieved successfully",
+      data: result,
+    });
+  },
+);
+
 const getAllGearsFilter = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const query = req.query;
@@ -111,6 +126,7 @@ export const providersController = {
   addGear,
   updateGear,
   deleteGear,
+  getProviderOrders,
   getAllGearsFilter,
   getGearById,
 };

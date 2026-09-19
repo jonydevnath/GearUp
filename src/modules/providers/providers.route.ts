@@ -17,6 +17,12 @@ router.patch(
   providersController.deleteGear,
 );
 
+router.get(
+  "/orders",
+  auth(Role.PROVIDER),
+  providersController.getProviderOrders,
+);
+
 router.get("/gears", providersController.getAllGearsFilter);
 router.get("/gears/:id", providersController.getGearById);
 

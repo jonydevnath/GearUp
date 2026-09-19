@@ -11,6 +11,5 @@ router.patch(
 	auth(Role.CUSTOMER, Role.PROVIDER, Role.ADMIN),
 	ordersController.updateRentalStatus,
 );
-// router.get("/", auth(Role.CUSTOMER, Role.PROVIDER), ordersController.getUserOrders);
 
 export const ordersRoutes = router;

@@ -71,6 +71,50 @@ const deleteGearInDB = async (
   return result;
 };
 
+const getProviderOrdersFromDB = async (providerId: string) => {
+  return prisma.rentalOrders.findMany({
+    where: {
+      rentalOrderItems: {
+        some: {
+          GearItems: {
+            providerId,
+          },
+        },
+      },
+    },
+    include: {
+      customer: {
+        select: {
+          id: true,
+          fullName: true,
+          email: true,
+          phone: true,
+        },
+      },
+      rentalOrderItems: {
+        where: {
+          GearItems: {
+            providerId,
+          },
+        },
+        include: {
+          GearItems: {
+            select: {
+              id: true,
+              title: true,
+              description: true,
+              providerId: true,
+            },
+          },
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+};
+
 const getAllGearsFilterInDB = async (query: IGearQuery) => {
   // 1. Pagination & Sorting setup
   const limit = query.limit ? Number(query.limit) : 10;
@@ -223,6 +267,7 @@ export const providersService = {
   addGearInDB,
   updateGearInDB,
   deleteGearInDB,
+  getProviderOrdersFromDB,
   getAllGearsFilterInDB,
   getGearByIdFromDB,
 };
