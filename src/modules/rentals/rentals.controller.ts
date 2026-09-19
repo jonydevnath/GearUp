@@ -25,6 +25,43 @@ const addRentals = catchAsync(
   },
 );
 
+const getCustomerRentals = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const result = await rentalsService.getCustomerRentalsFromDB(
+      req.user!.id,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Customer rental orders retrieved successfully",
+      data: result,
+    });
+  },
+);
+
+const getCustomerRentalById = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const rentalId = req.params.rentalId as string;
+
+    if (!rentalId) {
+      throw new Error("Rental ID is required in params");
+    }
+
+    const result = await rentalsService.getCustomerRentalByIdFromDB(
+      rentalId, 
+      req.user!.id,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Customer rental order retrieved successfully",
+      data: result,
+    });
+  },
+);
+
 export const updateRentalStatus = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { rentalId } = req.params;
@@ -52,5 +89,7 @@ export const updateRentalStatus = catchAsync(
 
 export const ordersController = {
   addRentals,
+  getCustomerRentals,
+  getCustomerRentalById,
   updateRentalStatus,
 };

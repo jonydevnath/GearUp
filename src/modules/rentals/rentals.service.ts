@@ -81,6 +81,65 @@ const addRentalsInDB = async (customerId: string, payload: IRentalsPayload) => {
   });
 };
 
+const getCustomerRentalsFromDB = async (customerId: string) => {
+  return prisma.rentalOrders.findMany({
+    where: { customerId },
+    include: {
+      rentalOrderItems: {
+        include: {
+          GearItems: {
+            include: {
+              category: true,
+              provider: {
+                select: {
+                  id: true,
+                  fullName: true,
+                  email: true,
+                },
+              },
+            },
+          },
+        },
+      },
+      payments: true,
+      reviews: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+};
+
+const getCustomerRentalByIdFromDB = async (
+  rentalId: string,
+  customerId: string,
+) => {
+  return prisma.rentalOrders.findFirstOrThrow({
+    where: {
+      id: rentalId,
+      customerId,
+    },
+    include: {
+      rentalOrderItems: {
+        include: {
+          GearItems: {
+            include: {
+              category: true,
+              provider: {
+                select: {
+                  id: true,
+                  fullName: true,
+                  email: true,
+                },
+              },
+            },
+          },
+        },
+      },
+      payments: true,
+      reviews: true,
+    },
+  });
+};
+
 const updateRentalStatusInDB = async (
   rentalId: string,
   newStatus: orderStatus,
@@ -203,5 +262,7 @@ const updateRentalStatusInDB = async (
 
 export const rentalsService = {
   addRentalsInDB,
+  getCustomerRentalsFromDB,
+  getCustomerRentalByIdFromDB,
   updateRentalStatusInDB,
 };

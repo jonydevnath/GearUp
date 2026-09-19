@@ -6,6 +6,12 @@ import { ordersController } from "./rentals.controller";
 export const router = Router();
 
 router.post("/", auth(Role.CUSTOMER), ordersController.addRentals);
+router.get("/", auth(Role.CUSTOMER), ordersController.getCustomerRentals);
+router.get(
+	"/:rentalId",
+	auth(Role.CUSTOMER),
+	ordersController.getCustomerRentalById,
+);
 router.patch(
 	"/:rentalId/status",
 	auth(Role.CUSTOMER, Role.PROVIDER, Role.ADMIN),
