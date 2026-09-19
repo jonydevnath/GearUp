@@ -80,9 +80,26 @@ const updateRentalStatusInDB = async (
   const rentalOrder = await prisma.rentalOrders.findUniqueOrThrow({
     where: { id: rentalId },
     include: {
-      rentalOrderItems: true,
+      rentalOrderItems: {
+        include: {
+          GearItems: {
+            select: {
+              providerId: true,
+            },
+          },
+        },
+      },
     },
   });
+
+  if (
+    user.role !== "ADMIN" &&
+    rentalOrder.rentalOrderItems.some(
+      (item) => item.GearItems.providerId !== user.id,
+    )
+  ) {
+    throw new Error("You are not authorized to update this rental order.");
+  }
 
   const currentStatus = rentalOrder.status;
 
