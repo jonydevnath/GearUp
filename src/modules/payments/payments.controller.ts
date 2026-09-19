@@ -42,6 +42,23 @@ const handleWebhook = catchAsync(
   },
 );
 
+const confirmCheckoutSession = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const { sessionId } = req.body;
+    const result = await paymentsService.confirmCheckoutSessionInDB(
+      sessionId,
+      req.user!.id,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Payment confirmed successfully",
+      data: result,
+    });
+  },
+);
+
 const getPayments = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     const result = await paymentsService.getPaymentsFromDB(req.user!);
@@ -75,6 +92,7 @@ const getPaymentByRentalOrderId = catchAsync(
 
 export const paymentsController = {
   createCheckoutSession,
+  confirmCheckoutSession,
   handleWebhook,
   getPayments,
   getPaymentByRentalOrderId,

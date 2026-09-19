@@ -154,6 +154,27 @@ const handleCheckoutSessionCompleted = async (
   return { alreadyProcessed: false, rentalOrderId };
 };
 
+const confirmCheckoutSessionInDB = async (
+  sessionId: string,
+  userId: string,
+) => {
+  if (!sessionId) {
+    throw new Error("sessionId is required");
+  }
+
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+  if (session.status !== "complete" || session.payment_status !== "paid") {
+    throw new Error("Payment has not been completed");
+  }
+
+  if (session.metadata?.customerId !== userId) {
+    throw new Error("Unauthorized payment confirmation");
+  }
+
+  return handleCheckoutSessionCompleted(session);
+};
+
 const handleStripeWebhook = async (
   rawBody: Buffer,
   signature: string | string[] | undefined,
@@ -274,6 +295,7 @@ const getPaymentByRentalOrderIdFromDB = async (
 
 export const paymentsService = {
   createCheckoutSessionInDB,
+  confirmCheckoutSessionInDB,
   handleStripeWebhook,
   getPaymentsFromDB,
   getPaymentByRentalOrderIdFromDB,
