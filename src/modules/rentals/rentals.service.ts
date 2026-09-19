@@ -2,6 +2,15 @@ import { orderStatus } from "../../../generated/prisma/enums";
 import { prisma } from "../../lib/prisma";
 import { IRentalsPayload } from "./rentals.interface";
 
+const allowedRentalTransitions: Record<orderStatus, orderStatus[]> = {
+  PLACED: ["CONFIRMED", "CANCELLED"],
+  CONFIRMED: ["CANCELLED"],
+  PAID: ["PICKED_UP"],
+  PICKED_UP: ["RETURNED"],
+  RETURNED: [],
+  CANCELLED: [],
+};
+
 const addRentalsInDB = async (customerId: string, payload: IRentalsPayload) => {
   const user = await prisma.users.findUniqueOrThrow({
     where: { id: customerId },
@@ -103,15 +112,10 @@ const updateRentalStatusInDB = async (
 
   const currentStatus = rentalOrder.status;
 
-  // Terminal states cannot be changed
-  if (currentStatus === "RETURNED" || currentStatus === "CANCELLED") {
+  if (!allowedRentalTransitions[currentStatus].includes(newStatus)) {
     throw new Error(
-      `Cannot change status of an order that is already ${currentStatus}.`,
+      `Invalid rental status transition from ${currentStatus} to ${newStatus}.`,
     );
-  }
-
-  if (currentStatus === newStatus) {
-    throw new Error(`Order is already in ${newStatus} status.`);
   }
 
   return await prisma.$transaction(async (tx) => {
