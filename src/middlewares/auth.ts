@@ -11,7 +11,7 @@ declare global {
     interface Request {
       user?: {
         id: string;
-        name: string;
+        fullName: string;
         email: string;
         role: Role;
       };
@@ -39,7 +39,7 @@ export const auth = (...requiredRoles: Role[]) => {
       throw new Error(verifiedToken.error);
     }
 
-    const { email, name, id, role } = verifiedToken.data as JwtPayload;
+    const { email, fullName, id, role } = verifiedToken.data as JwtPayload;
 
     if (requiredRoles.length && !requiredRoles.includes(role)) {
       throw new Error(
@@ -50,7 +50,7 @@ export const auth = (...requiredRoles: Role[]) => {
     const user = await prisma.users.findUnique({
       where: {
         id,
-        name,
+        fullName,
         email,
         role,
       },
@@ -60,14 +60,15 @@ export const auth = (...requiredRoles: Role[]) => {
       throw new Error("User not found. Please log in again.");
     }
 
-    // need to edit the auth middleware
-    // if (user.activeStatus === "BLOCKED") {
-    //   throw new Error("Your account has been blocked. Please contact support.");
-    // }
+    if (user.status === "SUSPENDED") {
+      throw new Error(
+        "Your account has been Suspended. Please contact support.",
+      );
+    }
 
     req.user = {
       id,
-      name,
+      fullName,
       email,
       role,
     };
