@@ -8,6 +8,10 @@ import { jwtUtils } from "../../utils/jwt";
 const registerUserIntoDB = async (payload: RegisterUserPayload) => {
   const { fullName, email, password, role, phone } = payload;
 
+  if (role && role !== "CUSTOMER" && role !== "PROVIDER") {
+    throw new Error("Only CUSTOMER or PROVIDER roles can be registered");
+  }
+
   const isUserExist = await prisma.users.findUnique({
     where: { email },
   });

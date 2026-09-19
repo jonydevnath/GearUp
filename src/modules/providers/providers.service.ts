@@ -130,7 +130,9 @@ const getAllGearsFilterInDB = async (query: IGearQuery) => {
   const sortOrder = query.sortOrder || "desc";
 
   // 2. Build Prisma dynamic AND conditions array
-  const andConditions: Prisma.GearItemsWhereInput[] = [];
+  const andConditions: Prisma.GearItemsWhereInput[] = [
+    { isAvailable: true },
+  ];
 
   // Partial match search across title or description
   if (query.searchTerm) {
@@ -189,9 +191,9 @@ const getAllGearsFilterInDB = async (query: IGearQuery) => {
 
   // Availability status filter
   if (query.isAvailable !== undefined) {
-    andConditions.push({
+    andConditions[0] = {
       isAvailable: String(query.isAvailable) === "true",
-    });
+    };
   }
 
   // Combine conditions into a single where object
