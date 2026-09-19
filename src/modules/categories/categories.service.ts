@@ -33,8 +33,13 @@ const deleteCategoriesInDB = async (categoriesId: string) => {
   });
 };
 
+const getAllcategoriesInDB = async () => {
+  return await prisma.categories.findMany();
+};
+
 export const categoriesService = {
   addCategoriesInDB,
   updateCategoriesInDB,
   deleteCategoriesInDB,
+  getAllcategoriesInDB,
 };

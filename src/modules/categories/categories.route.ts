@@ -17,4 +17,6 @@ router.delete(
   categoriesController.deleteCategories,
 );
 
+router.get("/", categoriesController.getAllcategories);
+
 export const categoriesRoutes = router;

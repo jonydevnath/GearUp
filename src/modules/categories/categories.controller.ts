@@ -65,8 +65,24 @@ const deleteCategories = catchAsync(
   },
 );
 
+const getAllcategories = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const result = await categoriesService.getAllcategoriesInDB();
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "All categories fetched successfully",
+      data: {
+        result,
+      },
+    });
+  },
+);
+
 export const categoriesController = {
   addcategories,
   updateCategories,
   deleteCategories,
+  getAllcategories,
 };
