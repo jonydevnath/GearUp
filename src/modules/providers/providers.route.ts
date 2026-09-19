@@ -17,7 +17,7 @@ router.patch(
   providersController.deleteGear,
 );
 
-// router.get("/gear", providersController.getAllGearsFilter);
+router.get("/gears", providersController.getAllGearsFilter);
 // router.get("/gear", providersController.getGearById);
 
 export const providersRoutes = router;

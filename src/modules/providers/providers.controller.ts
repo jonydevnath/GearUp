@@ -10,7 +10,10 @@ const addGear = catchAsync(
     const providerId = req.user?.id;
     const payload = req.body;
 
-    const result = await providersService.addGearInDB(payload, providerId as string);
+    const result = await providersService.addGearInDB(
+      payload,
+      providerId as string,
+    );
 
     sendResponse(res, {
       success: true,
@@ -73,8 +76,24 @@ const deleteGear = catchAsync(
   },
 );
 
+const getAllGearsFilter = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const query = req.query;
+
+    const result = await providersService.getAllGearsFilterInDB(query);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Gear items retrieved successfully",
+      meta: result.meta,
+      data: result.data,
+    });
+  },
+);
 export const providersController = {
   addGear,
   updateGear,
   deleteGear,
+  getAllGearsFilter,
 };
