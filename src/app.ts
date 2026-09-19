@@ -9,6 +9,7 @@ import { ordersRoutes } from "./modules/rentals/rentals.route";
 import { adminRoutes } from "./modules/admin/admin.route";
 import { paymentsRoutes } from "./modules/payments/payments.route";
 import { reviewsRoutes } from "./modules/Reviews/reviews.route";
+import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 
 const app: Application = express();
 
@@ -38,5 +39,6 @@ app.use("/api/rentals", ordersRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/payments", paymentsRoutes);
 app.use("/api/reviews", reviewsRoutes);
+app.use(globalErrorHandler);
 
 export default app;

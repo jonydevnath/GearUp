@@ -52,6 +52,10 @@ const loginUser = async (payload: IloginUser) => {
     throw new Error("Password is incorrect!");
   }
 
+  if (user.status === "SUSPENDED") {
+    throw new Error("Your account has been suspended. Please contact support.");
+  }
+
   const jwtPayload = {
     id: user.id,
     fullName: user.fullName,
