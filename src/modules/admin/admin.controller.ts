@@ -21,7 +21,7 @@ const getAllUsers = catchAsync(
 
 const updateUsersStatus = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const userId = req.user?.id;
+    const userId = req.params.userId;
     const status = req.body.status;
 
     const result = await adminService.updateUsersStatusInDB(
