@@ -101,7 +101,13 @@ const updateRentalStatusInDB = async (
     },
   });
 
-  if (
+  if (user.role === "CUSTOMER") {
+    if (newStatus !== "CANCELLED" || rentalOrder.customerId !== user.id) {
+      throw new Error(
+        "Customers can only cancel their own rental orders.",
+      );
+    }
+  } else if (
     user.role !== "ADMIN" &&
     rentalOrder.rentalOrderItems.some(
       (item) => item.GearItems.providerId !== user.id,
