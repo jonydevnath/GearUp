@@ -190,9 +190,39 @@ const getAllGearsFilterInDB = async (query: IGearQuery) => {
   };
 };
 
+const getGearByIdFromDB = async (id: string) => {
+  const gearItem = await prisma.gearItems.findUnique({
+    where: { id },
+    include: {
+      category: true,
+      provider: {
+        select: {
+          id: true,
+          fullName: true,
+          email: true,
+          phone: true,
+        },
+      },
+      reviews: {
+        include: {
+          customer: {
+            select: {
+              id: true,
+              fullName: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return gearItem;
+};
+
 export const providersService = {
   addGearInDB,
   updateGearInDB,
   deleteGearInDB,
   getAllGearsFilterInDB,
+  getGearByIdFromDB,
 };

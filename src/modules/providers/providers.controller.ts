@@ -91,9 +91,26 @@ const getAllGearsFilter = catchAsync(
     });
   },
 );
+
+const getGearById = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+
+    const result = await providersService.getGearByIdFromDB(id as string);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Gear item retrieved successfully",
+      data: result,
+    });
+  },
+);
+
 export const providersController = {
   addGear,
   updateGear,
   deleteGear,
   getAllGearsFilter,
+  getGearById,
 };

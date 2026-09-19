@@ -18,6 +18,6 @@ router.patch(
 );
 
 router.get("/gears", providersController.getAllGearsFilter);
-// router.get("/gear", providersController.getGearById);
+router.get("/gears/:id", providersController.getGearById);
 
 export const providersRoutes = router;
