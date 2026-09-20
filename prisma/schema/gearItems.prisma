@@ -8,6 +8,7 @@ model GearItems {
     category   Categories @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
     title       String  @db.VarChar(255)
+    brand       String? @db.VarChar(100)
     description String  @db.Text
     dailyRate   Decimal @db.Decimal(10, 2)
 

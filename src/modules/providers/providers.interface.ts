@@ -1,6 +1,7 @@
 export interface IGearPayload {
   categoryId: string;
   title: string;
+  brand?: string;
   description: string;
   dailyRate: number;
   stockQuantity: number;
@@ -14,6 +15,7 @@ export interface IGearQuery {
   searchTerm?: string;
   categoryId?: string;
   categoryName?: string;
+  brand?: string;
   minPrice?: string;
   maxPrice?: string;
   providerId?: string;

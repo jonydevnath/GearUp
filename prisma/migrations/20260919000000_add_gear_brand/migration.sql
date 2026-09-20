@@ -1,0 +1,1 @@
+ALTER TABLE "gearItems" ADD COLUMN "brand" VARCHAR(100);

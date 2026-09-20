@@ -150,6 +150,12 @@ const getAllGearsFilterInDB = async (query: IGearQuery) => {
             mode: "insensitive",
           },
         },
+        {
+          brand: {
+            contains: query.searchTerm,
+            mode: "insensitive",
+          },
+        },
       ],
     });
   }
@@ -168,6 +174,15 @@ const getAllGearsFilterInDB = async (query: IGearQuery) => {
           equals: query.categoryName,
           mode: "insensitive",
         },
+      },
+    });
+  }
+
+  if (query.brand) {
+    andConditions.push({
+      brand: {
+        contains: query.brand,
+        mode: "insensitive",
       },
     });
   }
