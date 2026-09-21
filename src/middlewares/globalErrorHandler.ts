@@ -57,6 +57,8 @@ export const globalErrorHandler = (
     errorName = "Bad Request";
   } else if (statusCode === httpStatus.UNAUTHORIZED) {
     errorName = "Unauthorized";
+  } else if (statusCode === httpStatus.FORBIDDEN) {
+    errorName = "Forbidden";
   } else if (statusCode === httpStatus.CONFLICT) {
     errorName = "Conflict";
   }
