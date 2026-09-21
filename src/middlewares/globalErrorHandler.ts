@@ -8,11 +8,17 @@ export const globalErrorHandler = (
   res: Response,
   _next: NextFunction,
 ) => {
-  console.log("Error:", err);
+  console.error("Unhandled application error:", err);
 
-  let statusCode: number = httpStatus.INTERNAL_SERVER_ERROR;
-  let errorMessage = err.message || "Internal Server Error";
-  const errorName = err.name || "Internal Server Error";
+  let statusCode: number = err.statusCode || httpStatus.INTERNAL_SERVER_ERROR;
+  let errorMessage =
+    statusCode >= httpStatus.INTERNAL_SERVER_ERROR
+      ? "Internal Server Error"
+      : err.message || "Request failed";
+  let errorName =
+    statusCode >= httpStatus.INTERNAL_SERVER_ERROR
+      ? "Internal Server Error"
+      : err.name || "RequestError";
 
   if (err instanceof Prisma.PrismaClientValidationError) {
     statusCode = httpStatus.BAD_REQUEST;
@@ -40,7 +46,19 @@ export const globalErrorHandler = (
     }
   } else if (err instanceof Prisma.PrismaClientUnknownRequestError) {
     statusCode = httpStatus.INTERNAL_SERVER_ERROR;
+    errorName = "Internal Server Error";
     errorMessage = "Error occurred during query execution";
+  }
+
+  if (statusCode >= httpStatus.INTERNAL_SERVER_ERROR) {
+    errorName = "Internal Server Error";
+    errorMessage = "Internal Server Error";
+  } else if (statusCode === httpStatus.BAD_REQUEST) {
+    errorName = "Bad Request";
+  } else if (statusCode === httpStatus.UNAUTHORIZED) {
+    errorName = "Unauthorized";
+  } else if (statusCode === httpStatus.CONFLICT) {
+    errorName = "Conflict";
   }
 
   res.status(statusCode).json({
@@ -48,6 +66,5 @@ export const globalErrorHandler = (
     statusCode,
     name: errorName,
     message: errorMessage,
-    error: err.stack,
   });
 };

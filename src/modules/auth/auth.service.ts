@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import httpStatus from "http-status";
 import { prisma } from "../../lib/prisma";
 import { IloginUser, RegisterUserPayload } from "./auth.interface";
 import { JwtPayload, SignOptions } from "jsonwebtoken";
@@ -17,7 +18,11 @@ const registerUserIntoDB = async (payload: RegisterUserPayload) => {
   });
 
   if (isUserExist) {
-    throw new Error("User email already exists");
+    const error = new Error("User email already exists") as Error & {
+      statusCode: number;
+    };
+    error.statusCode = httpStatus.CONFLICT;
+    throw error;
   }
 
   const hashedPassword = await bcrypt.hash(
