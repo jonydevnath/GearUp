@@ -119,6 +119,8 @@ The project exposes API routes grouped by feature:
 
 This project is intended to be tested using Postman.
 
+- [GearUp API Postman documentation](https://documenter.getpostman.com/view/55201130/2sBYB2q7Sg)
+
 - Import the Postman collection after testing is completed.
 - Use the local base URL:
   - `http://localhost:5000/api`
