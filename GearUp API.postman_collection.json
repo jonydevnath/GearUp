@@ -1,0 +1,3331 @@
+{
+  "info": {
+    "_postman_id": "27c9393c-d2bf-49ae-9d7e-6df50103e6c9",
+    "name": "GearUp API",
+    "description": "Postman collection for the GearUp Backend API. Import this collection and run requests in order to test the app locally.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55201130",
+    "_collection_link": "https://go.postman.co/collection/55201130-27c9393c-d2bf-49ae-9d7e-6df50103e6c9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register Customer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"John Smith\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"CUSTOMER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register Customer",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fullName\": \"John Smith\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"CUSTOMER\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "321"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 20 Sep 2026 18:32:39 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"141-VfYE2jkdy0VZ6ZsayO+b6nVKgzQ\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::ghptk-1789929155775-ceb2b77b65be"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"User register successfully\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"333901c4-a38c-4810-85f3-054a1da0fa8e\",\n      \"fullName\": \"John Smith\",\n      \"email\": \"john@example.com\",\n      \"role\": \"CUSTOMER\",\n      \"status\": \"ACTIVE\",\n      \"phone\": \"+1234567890\",\n      \"createdAt\": \"2026-09-20T18:32:38.039Z\",\n      \"updatedAt\": \"2026-09-20T18:32:38.039Z\"\n    }\n  }\n}"
+            },
+            {
+              "name": "Register Customer",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fullName\": \"John Smith\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"CUSTOMER\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "90"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:25:36 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"5a-B/u2jtPtNp+nvHvn7l1cE/gZRCo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::9clst-1789964734439-8cafe0b8f9f0"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 409,\n  \"name\": \"Conflict\",\n  \"message\": \"User email already exists\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register Provider",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Bike Shop\",\n  \"email\": \"shop@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"PROVIDER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register Provider",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fullName\": \"Bike Shop\",\n  \"email\": \"shop@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"PROVIDER\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "320"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Sun, 20 Sep 2026 18:36:20 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"140-/zDUNHcrGJjeEnIH/TxdylOeMxo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hh2wq-1789929378150-269c8f5a911b"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"User register successfully\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"e094a2db-b8d6-4cca-b314-3571a18698fb\",\n      \"fullName\": \"Bike Shop\",\n      \"email\": \"shop@example.com\",\n      \"role\": \"PROVIDER\",\n      \"status\": \"ACTIVE\",\n      \"phone\": \"+1234567890\",\n      \"createdAt\": \"2026-09-20T18:36:20.188Z\",\n      \"updatedAt\": \"2026-09-20T18:36:20.188Z\"\n    }\n  }\n}"
+            },
+            {
+              "name": "Register Provider",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fullName\": \"Bike Shop\",\n  \"email\": \"shop@example.com\",\n  \"password\": \"Password123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"PROVIDER\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "90"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:25:50 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"5a-B/u2jtPtNp+nvHvn7l1cE/gZRCo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::j25fm-1789964748124-d3560c980d2e"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 409,\n  \"name\": \"Conflict\",\n  \"message\": \"User email already exists\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "675"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:02:55 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"2a3-lxb13hnCICEaRSFTegahho4uzEI\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2MzM3NSwiZXhwIjoxNzkwMDQ5Nzc1fQ.GfUsLeZNXcLOe-zhLIwQ-UqUPw1zXKkLu8YiEP9ifH8; Max-Age=86400; Path=/; Expires=Tue, 22 Sep 2026 04:02:55 GMT; HttpOnly; Secure; SameSite=None"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2MzM3NSwiZXhwIjoxNzkwNTY4MTc1fQ.HSdTSkgK8j0qyZqI8DDgtYFZ5aPwewv-JzZZrkGDy80; Max-Age=604800; Path=/; Expires=Mon, 28 Sep 2026 04:02:55 GMT; HttpOnly; Secure; SameSite=None"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::dwc62-1789963373266-a66776bbe7c7"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"User logged in successfully\",\n  \"data\": {\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2MzM3NSwiZXhwIjoxNzkwMDQ5Nzc1fQ.GfUsLeZNXcLOe-zhLIwQ-UqUPw1zXKkLu8YiEP9ifH8\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2MzM3NSwiZXhwIjoxNzkwNTY4MTc1fQ.HSdTSkgK8j0qyZqI8DDgtYFZ5aPwewv-JzZZrkGDy80\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/refresh-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Refresh Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/refresh-token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "99"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:26:30 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"63-sc1ePXINvL8iDHp3fcLXwm8B8CU\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::pbbvp-1789964790695-89ce4816cb2f"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 500,\n  \"name\": \"Internal Server Error\",\n  \"message\": \"Internal Server Error\"\n}"
+            },
+            {
+              "name": "Refresh Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/refresh-token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "379"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:27:51 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"17b-lQcM91jJPwr2k0IKxQaBF571Lj8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "set-cookie",
+                  "value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2NDg3MSwiZXhwIjoxNzkwMDUxMjcxfQ.YGGZDJ7fU_gM82kdaKmwEILUnELzP6SFvwPfxzqGoXk; Max-Age=86400; Path=/; Expires=Tue, 22 Sep 2026 04:27:51 GMT; HttpOnly; Secure; SameSite=None"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::65d7f-1789964871117-79c0b706ac77"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Token refreshed successfully\",\n  \"data\": {\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5MWFmZmUzLTUzZmMtNGY1MC1hMGMzLTIzM2IzNDMxYzNmZiIsImZ1bGxOYW1lIjoiSm9obiBTbWl0aCIsImVtYWlsIjoiam9obkBleGFtcGxlLmNvbSIsInJvbGUiOiJDVVNUT01FUiIsImlhdCI6MTc4OTk2NDg3MSwiZXhwIjoxNzkwMDUxMjcxfQ.YGGZDJ7fU_gM82kdaKmwEILUnELzP6SFvwPfxzqGoXk\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Current User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "127"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:26:43 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"7f-ELdxb7jgDdPnzS2b6g4iFK1Wfk8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::9v5sr-1789964803665-43be87356f30"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 401,\n  \"name\": \"Unauthorized\",\n  \"message\": \"You are not logged in. Please login to access to resource.\"\n}"
+            },
+            {
+              "name": "Get Current User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/auth/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "335"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:28:11 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"14f-tOaxcmJar7+jev01VwCKQCVpdKM\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::pnh9t-1789964889693-fa761e0df55b"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Current user fetched successfully\",\n  \"data\": {\n    \"currentUser\": {\n      \"id\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"fullName\": \"John Smith\",\n      \"email\": \"john@example.com\",\n      \"role\": \"CUSTOMER\",\n      \"status\": \"ACTIVE\",\n      \"phone\": \"+1234567890\",\n      \"createdAt\": \"2026-09-21T03:48:51.817Z\",\n      \"updatedAt\": \"2026-09-21T03:48:51.817Z\"\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Add Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Camping\",\n  \"slug\": \"camping\",\n  \"description\": \"Outdoor camping and hiking gear\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Camping\",\n  \"description\": \"Outdoor camping and hiking gear\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "127"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:48:28 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"7f-Wd6p+qtd3w3VvIlHGWKUetaFPOg\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::sgjsb-1789966107564-46e0afbaa3c1"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 403,\n  \"name\": \"Forbidden\",\n  \"message\": \"Forbidden. You don't have permission to access this resource.\"\n}"
+            },
+            {
+              "name": "Add Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Camping\",\n    \"slug\": \"camping\",\n    \"description\": \"Outdoor camping and hiking gear\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "258"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:51:41 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"102-vujMWjfqA+6w0TivgjUWXipKWe8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::whx25-1789966299408-3d29e96aa08e"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"Add categories successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"41def328-0945-4fff-8cc0-3cb87464fa21\",\n      \"name\": \"Camping\",\n      \"slug\": \"camping\",\n      \"description\": \"Outdoor camping and hiking gear\",\n      \"createdAt\": \"2026-09-21T04:51:41.256Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Camping Gear\",\n  \"slug\": \"camping\",\n  \"description\": \"Updated camping and outdoor gear\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "{{categoryId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Category",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Camping Gear\",\n  \"slug\": \"camping\",\n  \"description\": \"Updated camping and outdoor gear\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "{{categoryId}}"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "163"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:55:59 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"a3-5mwY4DHOC8C22Gunx9MKmVwhMOg\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::btpd8-1789966557301-f4a7b80f58b7"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 400,\n  \"name\": \"Bad Request\",\n  \"message\": \"An operation failed because it depends on one or more records that were required but not found.\"\n}"
+            },
+            {
+              "name": "Update Category",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Camping Gear\",\n  \"slug\": \"camping\",\n  \"description\": \"Updated camping and outdoor gear\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "{{categoryId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "268"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:57:08 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"10c-XjS2BeSvaU+p8SstSUGFDQnwCC0\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::wd5gt-1789966626808-aab8d0d03f8c"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Categories updated successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"173f6be7-1de1-42f3-8edf-aa101fd4d3b2\",\n      \"name\": \"Camping Gear\",\n      \"slug\": \"camping\",\n      \"description\": \"Updated camping and outdoor gear\",\n      \"createdAt\": \"2026-09-21T04:55:46.282Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "{{categoryId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Category",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "{{categoryId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "77"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:57:26 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"4d-/3xL2CztdObxpSklGj9FhEfQaF8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hsx7v-1789966644276-38bfedeab1e2"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Categories deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Categories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "434"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 04:58:49 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1b2-JRqFZsJtrOgE+qMFIWGTPW8LFL0\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::b7g46-1789966728989-b5af0b88da78"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"All categories fetched successfully\",\n  \"data\": {\n    \"result\": [\n      {\n        \"id\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n        \"name\": \"Camping\",\n        \"slug\": \"camping\",\n        \"description\": \"Outdoor camping and hiking gear\",\n        \"createdAt\": \"2026-09-21T04:57:46.011Z\"\n      },\n      {\n        \"id\": \"70ee619a-1a0a-434b-b587-811520ce5c3b\",\n        \"name\": \"Camara\",\n        \"slug\": \"Camara\",\n        \"description\": \"Outdoor Camara and shooting gear\",\n        \"createdAt\": \"2026-09-21T04:58:44.691Z\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "item": [
+        {
+          "name": "Add Gear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Hiking Backpack\",\n  \"description\": \"50L waterproof hiking backpack\",\n  \"categoryId\": \"{{categoryId}}\",\n  \"brand\": \"North Peak\",\n  \"dailyRate\": 25,\n  \"stockQuantity\": 5,\n  \"isAvailable\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/gear",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "gear"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Gear",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Hiking Backpack\",\n  \"description\": \"50L waterproof hiking backpack\",\n  \"categoryId\": \"{{categoryId}}\",\n  \"brand\": \"North Peak\",\n  \"dailyRate\": 25,\n  \"stockQuantity\": 5,\n  \"isAvailable\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/gear",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "gear"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "474"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 05:34:45 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1da-fVSBBYN3ec6UAFnBP0Vfq1FQ90U\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::rtcvb-1789968882129-5d78c752b9d6"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"Add gear to inventory successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n      \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n      \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n      \"title\": \"Hiking Backpack\",\n      \"brand\": \"North Peak\",\n      \"description\": \"50L waterproof hiking backpack\",\n      \"dailyRate\": \"25\",\n      \"stockQuantity\": 5,\n      \"isAvailable\": true,\n      \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n      \"updatedAt\": \"2026-09-21T05:34:45.614Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Gear",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Hiking Backpack Pro\",\n  \"description\": \"Updated waterproof hiking backpack\",\n  \"brand\": \"North Peak\",\n  \"dailyRate\": 30,\n  \"stockQuantity\": 6,\n  \"isAvailable\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/gear/{{gearId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "gear",
+                "{{gearId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Gear",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Hiking Backpack Pro\",\n  \"description\": \"Updated waterproof hiking backpack\",\n  \"brand\": \"North Peak\",\n  \"dailyRate\": 30,\n  \"stockQuantity\": 6,\n  \"isAvailable\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/gear/{{gearId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "gear",
+                    "{{gearId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "473"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 05:35:39 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1d9-m5ipvjl3dIEZAnmXwFrDknRyzJs\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::thprq-1789968935784-59bd868db147"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Gear updated successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n      \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n      \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n      \"title\": \"Hiking Backpack Pro\",\n      \"brand\": \"North Peak\",\n      \"description\": \"Updated waterproof hiking backpack\",\n      \"dailyRate\": \"30\",\n      \"stockQuantity\": 6,\n      \"isAvailable\": true,\n      \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n      \"updatedAt\": \"2026-09-21T05:35:39.414Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete/Disable Gear",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isAvailable\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/gear/{{gearId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "gear",
+                "{{gearId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete/Disable Gear",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isAvailable\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/gear/{{gearId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "gear",
+                    "{{gearId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "71"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 05:36:00 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"47-KRuqP32y+R+XC0DqqajW2DJSGKo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::8hjpm-1789968958153-181d5fc5c382"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Gear deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provider Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Provider Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "908"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 02:36:22 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"38c-5alMHXvcmlxPFUNgAo9Lrw9bnoQ\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "BYPASS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::72jrg-1790044580325-a3b8dfedb38f"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Provider rental orders retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"startDate\": \"2026-10-21T00:00:00.000Z\",\n      \"endDate\": \"2026-10-27T00:00:00.000Z\",\n      \"totalAmount\": \"180\",\n      \"status\": \"PAID\",\n      \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n      \"updatedAt\": \"2026-09-21T06:31:27.990Z\",\n      \"customer\": {\n        \"id\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n        \"fullName\": \"John Smith\",\n        \"email\": \"john@example.com\",\n        \"phone\": \"+1234567890\"\n      },\n      \"rentalOrderItems\": [\n        {\n          \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n          \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n          \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"quantity\": 1,\n          \"pricePerDay\": \"30\",\n          \"GearItems\": {\n            \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n            \"title\": \"Hiking Backpack Pro\",\n            \"description\": \"waterproof hiking backpack\",\n            \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Gears with Filters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/gears?searchTerm=backpack&brand=North Peak&minPrice=10&maxPrice=50&page=1&limit=10&sortBy=createdAt&sortOrder=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "gears"
+              ],
+              "query": [
+                {
+                  "key": "searchTerm",
+                  "value": "backpack"
+                },
+                {
+                  "key": "brand",
+                  "value": "North Peak"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "10"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "50"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "desc"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Gears with Filters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/gears?searchTerm=backpack&brand=North Peak&minPrice=10&maxPrice=50&page=1&limit=10&sortBy=createdAt&sortOrder=desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "gears"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "backpack"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "North Peak"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "803"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 02:36:53 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"323-rcE6dol4mlbfSy36/C/qRD3r/PU\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::krfzm-1790044609385-66ba87d00baf"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Gear items retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n      \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n      \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n      \"title\": \"Hiking Backpack Pro\",\n      \"brand\": \"North Peak\",\n      \"description\": \"waterproof hiking backpack\",\n      \"dailyRate\": \"30\",\n      \"stockQuantity\": 6,\n      \"isAvailable\": true,\n      \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n      \"updatedAt\": \"2026-09-21T05:36:00.398Z\",\n      \"category\": {\n        \"id\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n        \"name\": \"Camping\",\n        \"slug\": \"camping\",\n        \"description\": \"Outdoor camping and hiking gear\",\n        \"createdAt\": \"2026-09-21T04:57:46.011Z\"\n      },\n      \"provider\": {\n        \"id\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n        \"fullName\": \"Bike Shop\",\n        \"email\": \"shop@example.com\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"page\": 1,\n    \"limit\": 10,\n    \"total\": 1,\n    \"totalPages\": 1\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Gear By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/providers/gears/{{gearId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "gears",
+                "{{gearId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Gear By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/providers/gears/{{gearId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "gears",
+                    "{{gearId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "790"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 05:36:41 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"316-6wAtkmm4HslGvm7A3XhgareaYL4\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::2vsfk-1789968997484-033f363461cb"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Gear item retrieved successfully\",\n  \"data\": {\n    \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n    \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n    \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n    \"title\": \"Hiking Backpack Pro\",\n    \"brand\": \"North Peak\",\n    \"description\": \"Updated waterproof hiking backpack\",\n    \"dailyRate\": \"30\",\n    \"stockQuantity\": 6,\n    \"isAvailable\": false,\n    \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n    \"updatedAt\": \"2026-09-21T05:36:00.398Z\",\n    \"category\": {\n      \"id\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n      \"name\": \"Camping\",\n      \"slug\": \"camping\",\n      \"description\": \"Outdoor camping and hiking gear\",\n      \"createdAt\": \"2026-09-21T04:57:46.011Z\"\n    },\n    \"provider\": {\n      \"id\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n      \"fullName\": \"Bike Shop\",\n      \"email\": \"shop@example.com\",\n      \"phone\": \"+1234567890\"\n    },\n    \"reviews\": []\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rentals",
+      "item": [
+        {
+          "name": "Create Rental Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"startDate\": \"2026-10-21\",\n  \"endDate\": \"2026-10-27\",\n  \"items\": [\n    {\n      \"gearId\": \"{{gearId}}\",\n      \"quantity\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/rentals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "rentals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Rental Order",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"startDate\": \"2026-10-21\",\n  \"endDate\": \"2026-10-27\",\n  \"items\": [\n    {\n      \"gearId\": \"{{gearId}}\",\n      \"quantity\": 1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/rentals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rentals"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "585"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:23:20 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"249-qYDkxMKQqWqjKm4um0baxhVvPfA\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::xd9vw-1789971796655-65294a916707"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"Add rentals successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"startDate\": \"2026-10-21T00:00:00.000Z\",\n      \"endDate\": \"2026-10-27T00:00:00.000Z\",\n      \"totalAmount\": \"180\",\n      \"status\": \"PLACED\",\n      \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n      \"updatedAt\": \"2026-09-21T06:23:19.262Z\",\n      \"rentalOrderItems\": [\n        {\n          \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n          \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n          \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"quantity\": 1,\n          \"pricePerDay\": \"30\"\n        }\n      ]\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Rentals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/rentals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "rentals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get My Rentals",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/rentals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rentals"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 02:34:28 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"762-6IKXUeQV8UaO4sLvzN7142VTr28\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::djxqn-1790044463748-92b47c13c638"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Customer rental orders retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"startDate\": \"2026-10-21T00:00:00.000Z\",\n      \"endDate\": \"2026-10-27T00:00:00.000Z\",\n      \"totalAmount\": \"180\",\n      \"status\": \"PAID\",\n      \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n      \"updatedAt\": \"2026-09-21T06:31:27.990Z\",\n      \"rentalOrderItems\": [\n        {\n          \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n          \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n          \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"quantity\": 1,\n          \"pricePerDay\": \"30\",\n          \"GearItems\": {\n            \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n            \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n            \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n            \"title\": \"Hiking Backpack Pro\",\n            \"brand\": \"North Peak\",\n            \"description\": \"waterproof hiking backpack\",\n            \"dailyRate\": \"30\",\n            \"stockQuantity\": 6,\n            \"isAvailable\": true,\n            \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n            \"updatedAt\": \"2026-09-21T05:36:00.398Z\",\n            \"category\": {\n              \"id\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n              \"name\": \"Camping\",\n              \"slug\": \"camping\",\n              \"description\": \"Outdoor camping and hiking gear\",\n              \"createdAt\": \"2026-09-21T04:57:46.011Z\"\n            },\n            \"provider\": {\n              \"id\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n              \"fullName\": \"Bike Shop\",\n              \"email\": \"shop@example.com\"\n            }\n          }\n        }\n      ],\n      \"payments\": {\n        \"id\": \"c4cefe98-5d62-4e1e-bc75-26b0dc2ad109\",\n        \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"transactionId\": \"pi_3UI0jPK998FIbjxc0uFOTE86\",\n        \"amount\": \"180\",\n        \"paymentMethod\": \"card\",\n        \"status\": \"COMPLETED\",\n        \"paidAt\": \"2026-09-21T06:31:28.229Z\",\n        \"createdAt\": \"2026-09-21T06:31:28.233Z\"\n      },\n      \"reviews\": [\n        {\n          \"id\": \"da8c24d5-5519-4743-9998-c061894c0a47\",\n          \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n          \"gearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n          \"rating\": \"FIVE\",\n          \"comment\": \"Excellent gear and smooth rental experience.\",\n          \"createdAt\": \"2026-09-22T01:54:55.199Z\"\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Rental By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/rentals/{{rentalId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "rentals",
+                "{{rentalId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Rental By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/rentals/{{rentalId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rentals",
+                    "{{rentalId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 02:34:51 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"75f-ZceDhfqpBfLKDqPAQu6nd+9hpuQ\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "BYPASS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::4vgz4-1790044487385-3b8babf2a2de"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Customer rental order retrieved successfully\",\n  \"data\": {\n    \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n    \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n    \"startDate\": \"2026-10-21T00:00:00.000Z\",\n    \"endDate\": \"2026-10-27T00:00:00.000Z\",\n    \"totalAmount\": \"180\",\n    \"status\": \"PAID\",\n    \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n    \"updatedAt\": \"2026-09-21T06:31:27.990Z\",\n    \"rentalOrderItems\": [\n      {\n        \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n        \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n        \"quantity\": 1,\n        \"pricePerDay\": \"30\",\n        \"GearItems\": {\n          \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n          \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n          \"title\": \"Hiking Backpack Pro\",\n          \"brand\": \"North Peak\",\n          \"description\": \"waterproof hiking backpack\",\n          \"dailyRate\": \"30\",\n          \"stockQuantity\": 6,\n          \"isAvailable\": true,\n          \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n          \"updatedAt\": \"2026-09-21T05:36:00.398Z\",\n          \"category\": {\n            \"id\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n            \"name\": \"Camping\",\n            \"slug\": \"camping\",\n            \"description\": \"Outdoor camping and hiking gear\",\n            \"createdAt\": \"2026-09-21T04:57:46.011Z\"\n          },\n          \"provider\": {\n            \"id\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n            \"fullName\": \"Bike Shop\",\n            \"email\": \"shop@example.com\"\n          }\n        }\n      }\n    ],\n    \"payments\": {\n      \"id\": \"c4cefe98-5d62-4e1e-bc75-26b0dc2ad109\",\n      \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"transactionId\": \"pi_3UI0jPK998FIbjxc0uFOTE86\",\n      \"amount\": \"180\",\n      \"paymentMethod\": \"card\",\n      \"status\": \"COMPLETED\",\n      \"paidAt\": \"2026-09-21T06:31:28.229Z\",\n      \"createdAt\": \"2026-09-21T06:31:28.233Z\"\n    },\n    \"reviews\": [\n      {\n        \"id\": \"da8c24d5-5519-4743-9998-c061894c0a47\",\n        \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n        \"gearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n        \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"rating\": \"FIVE\",\n        \"comment\": \"Excellent gear and smooth rental experience.\",\n        \"createdAt\": \"2026-09-22T01:54:55.199Z\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Rental Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CANCELLED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/rentals/{{rentalId}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "rentals",
+                "{{rentalId}}",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Rental Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"CANCELLED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/rentals/{{rentalId}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "rentals",
+                    "{{rentalId}}",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "606"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:26:37 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"25e-M8S0AfuoMbPYDjEvsbRq9jQsgbw\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::lv58q-1789971994107-2f39d9c7e16f"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Rental order status updated to CANCELLED successfully\",\n  \"data\": {\n    \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n    \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n    \"startDate\": \"2026-10-21T00:00:00.000Z\",\n    \"endDate\": \"2026-10-27T00:00:00.000Z\",\n    \"totalAmount\": \"180\",\n    \"status\": \"CANCELLED\",\n    \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n    \"updatedAt\": \"2026-09-21T06:26:36.975Z\",\n    \"rentalOrderItems\": [\n      {\n        \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n        \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n        \"quantity\": 1,\n        \"pricePerDay\": \"30\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Create Checkout Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rentalOrderId\": \"{{rentalId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/create-checkout-session",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "create-checkout-session"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Checkout Session",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rentalOrderId\": \"{{rentalId}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/payments/create-checkout-session",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payments",
+                    "create-checkout-session"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "640"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:29:00 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"280-NuoVNZfJazWBPg9e1GtjNpMiLZQ\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::tjndp-1789972138039-963d3581a4a4"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Stripe checkout session created successfully\",\n  \"data\": {\n    \"checkoutUrl\": \"https://checkout.stripe.com/c/pay/cs_test_a1Nx9OGEUQLCpDhzrXH9jlO1CRo4mJ9wX3XWjV42ZkVBC2Vui5KPJp8MWC#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBDZj1wTjw8PUNMZ299ZnJ3fGprY1U0NzBdSFVQcnNtUUdwU002azxMUExRaj12d3VjR1JuPGBhNUddSDBWaHNgYm0xRDdsfUZ8bkRjd05ATTR8XWFgSjU1SGRuQmM0N3EnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl\",\n    \"sessionId\": \"cs_test_a1Nx9OGEUQLCpDhzrXH9jlO1CRo4mJ9wX3XWjV42ZkVBC2Vui5KPJp8MWC\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Confirm Payment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sessionId\": \"cs_test_a1Nx9OGEUQLCpDhzrXH9jlO1CRo4mJ9wX3XWjV42ZkVBC2Vui5KPJp8MWC\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/confirm",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "confirm"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Confirm Payment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"cs_test_a1Nx9OGEUQLCpDhzrXH9jlO1CRo4mJ9wX3XWjV42ZkVBC2Vui5KPJp8MWC\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/payments/confirm",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payments",
+                    "confirm"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "165"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:31:28 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"a5-zloaSMvaemjgLSpS+dx9RTQOdYM\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::thprq-1789972285479-fb8ef5945826"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Payment confirmed successfully\",\n  \"data\": {\n    \"alreadyProcessed\": false,\n    \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Payments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payments"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Payments",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "598"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:32:12 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"256-Y+7+Y60cPSa0J04/sdHfmUXgk8o\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::tx9l7-1789972330528-d99cd60dbd36"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Payment history retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": \"c4cefe98-5d62-4e1e-bc75-26b0dc2ad109\",\n      \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"transactionId\": \"pi_3UI0jPK998FIbjxc0uFOTE86\",\n      \"amount\": \"180\",\n      \"paymentMethod\": \"card\",\n      \"status\": \"COMPLETED\",\n      \"paidAt\": \"2026-09-21T06:31:28.229Z\",\n      \"createdAt\": \"2026-09-21T06:31:28.233Z\",\n      \"rentalOrder\": {\n        \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n        \"startDate\": \"2026-10-21T00:00:00.000Z\",\n        \"endDate\": \"2026-10-27T00:00:00.000Z\",\n        \"totalAmount\": \"180\",\n        \"status\": \"PAID\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Payment By Rental Order ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/{{rentalId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "{{rentalId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Payment By Rental Order ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/payments/{{rentalId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "payments",
+                    "{{rentalId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 06:32:48 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"3fd-DjzpsHF2tInAoryh5FJOzbW30fY\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::zphrr-1789972365382-01bbe2740627"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"Payment details retrieved successfully\",\n  \"data\": {\n    \"id\": \"c4cefe98-5d62-4e1e-bc75-26b0dc2ad109\",\n    \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n    \"transactionId\": \"pi_3UI0jPK998FIbjxc0uFOTE86\",\n    \"amount\": \"180\",\n    \"paymentMethod\": \"card\",\n    \"status\": \"COMPLETED\",\n    \"paidAt\": \"2026-09-21T06:31:28.229Z\",\n    \"createdAt\": \"2026-09-21T06:31:28.233Z\",\n    \"rentalOrder\": {\n      \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"startDate\": \"2026-10-21T00:00:00.000Z\",\n      \"endDate\": \"2026-10-27T00:00:00.000Z\",\n      \"totalAmount\": \"180\",\n      \"status\": \"PAID\",\n      \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n      \"updatedAt\": \"2026-09-21T06:31:27.990Z\",\n      \"rentalOrderItems\": [\n        {\n          \"id\": \"651e2d5d-efa6-42ba-bc3c-629f28930f4d\",\n          \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n          \"GearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n          \"quantity\": 1,\n          \"pricePerDay\": \"30\",\n          \"GearItems\": {\n            \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n            \"title\": \"Hiking Backpack Pro\",\n            \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\"\n          }\n        }\n      ]\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Add Review",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"gearItemsId\": \"{{gearId}}\",\n    \"rentalOrderId\": \"{{rentalId}}\",\n    \"rating\": \"FIVE\",\n    \"comment\": \"Excellent gear and smooth rental experience.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Review",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"gearItemsId\": \"{{gearId}}\",\n    \"rentalOrderId\": \"{{rentalId}}\",\n    \"rating\": \"FIVE\",\n    \"comment\": \"Excellent gear and smooth rental experience.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/reviews",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "405"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 01:54:55 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"195-xZbRPrEp17vD0q1paqvOytkvxU4\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hs872-1790042092589-5ec10182acc7"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 201,\n  \"message\": \"Add review successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"da8c24d5-5519-4743-9998-c061894c0a47\",\n      \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"gearItemsId\": \"18570e10-ba33-4295-847a-a147701fe302\",\n      \"rentalOrderId\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n      \"rating\": \"FIVE\",\n      \"comment\": \"Excellent gear and smooth rental experience.\",\n      \"createdAt\": \"2026-09-22T01:54:55.199Z\"\n    }\n  }\n}"
+            },
+            {
+              "name": "Add Review",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"gearItemsId\": \"{{gearId}}\",\n    \"rentalOrderId\": \"{{rentalId}}\",\n    \"rating\": \"FIVE\",\n    \"comment\": \"Excellent gear and smooth rental experience.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/reviews",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "119"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 22 Sep 2026 02:33:29 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"77-25fCGP4+YVGILQ6ePdZsdKuuJAA\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::xwt2k-1790044407806-57b9796ca7ec"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"statusCode\": 400,\n  \"name\": \"Bad Request\",\n  \"message\": \"You can only review gear after it has been returned\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/admin/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "797"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 16:21:50 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"31d-uqwQn/tHs6Z3WU4/f+TB7ZSpoo0\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hvgdp-1790007709356-ac711223bb8a"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"All users fetched successfully\",\n  \"data\": {\n    \"result\": [\n      {\n        \"id\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n        \"fullName\": \"John Smith\",\n        \"email\": \"john@example.com\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"phone\": \"+1234567890\",\n        \"createdAt\": \"2026-09-21T03:48:51.817Z\",\n        \"updatedAt\": \"2026-09-21T03:48:51.817Z\"\n      },\n      {\n        \"id\": \"d83b4c66-e3fb-4bb4-bced-d10f721ff3dc\",\n        \"fullName\": \"Jony Devnath\",\n        \"email\": \"jony.admin@gmail.com\",\n        \"role\": \"ADMIN\",\n        \"status\": \"ACTIVE\",\n        \"phone\": \"01906717162\",\n        \"createdAt\": \"2026-09-21T04:01:14.138Z\",\n        \"updatedAt\": \"2026-09-21T04:01:14.138Z\"\n      },\n      {\n        \"id\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n        \"fullName\": \"Bike Shop\",\n        \"email\": \"shop@example.com\",\n        \"role\": \"PROVIDER\",\n        \"status\": \"ACTIVE\",\n        \"phone\": \"+1234567890\",\n        \"createdAt\": \"2026-09-21T04:02:34.586Z\",\n        \"updatedAt\": \"2026-09-21T04:02:34.586Z\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update User Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"SUSPENDED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/users/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update User Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"SUSPENDED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/admin/users/{{userId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    "{{userId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "410"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 16:23:14 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"19a-IBszazubJV5Dx6FltblWguQfodo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::qctrx-1790007792617-abf004b84846"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"User status updated successfully\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n      \"fullName\": \"John Smith\",\n      \"email\": \"john@example.com\",\n      \"passwordHash\": \"$2b$10$0xwuArgYAbPW0bszKivhFuBo8GluSqogKf4jdvy2f0NNHvGtjXbOm\",\n      \"role\": \"CUSTOMER\",\n      \"status\": \"SUSPENDED\",\n      \"phone\": \"+1234567890\",\n      \"createdAt\": \"2026-09-21T03:48:51.817Z\",\n      \"updatedAt\": \"2026-09-21T16:23:14.502Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Gears",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/gears",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "gears"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Gears",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/admin/gears",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "gears"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "472"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 16:23:40 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1d8-sXt9R4b6JTo4ltlPkTXA/zCw+gQ\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::x9bbt-1790007818374-7344efa21e0c"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"All gears fetched successfully\",\n  \"data\": {\n    \"result\": [\n      {\n        \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n        \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\",\n        \"categoryId\": \"62abce2e-6c29-4048-bd44-641ce5b77129\",\n        \"title\": \"Hiking Backpack Pro\",\n        \"brand\": \"North Peak\",\n        \"description\": \"waterproof hiking backpack\",\n        \"dailyRate\": \"30\",\n        \"stockQuantity\": 6,\n        \"isAvailable\": true,\n        \"createdAt\": \"2026-09-21T05:34:45.614Z\",\n        \"updatedAt\": \"2026-09-21T05:36:00.398Z\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Rentals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/rentals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "rentals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Rentals",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/admin/rentals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "rentals"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-length",
+                  "value": "585"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 21 Sep 2026 16:24:07 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"249-OaM1EdZ97G+XniBCNyHvh0MShmE\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::n58jw-1790007845052-2092037c2576"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"statusCode\": 200,\n  \"message\": \"All rentals fetched successfully\",\n  \"data\": {\n    \"result\": [\n      {\n        \"id\": \"1a905dd4-06e5-4e36-b475-e5b07703e23b\",\n        \"customerId\": \"391affe3-53fc-4f50-a0c3-233b3431c3ff\",\n        \"startDate\": \"2026-10-21T00:00:00.000Z\",\n        \"endDate\": \"2026-10-27T00:00:00.000Z\",\n        \"totalAmount\": \"180\",\n        \"status\": \"PAID\",\n        \"createdAt\": \"2026-09-21T06:23:19.262Z\",\n        \"rentalOrderItems\": [\n          {\n            \"quantity\": 1,\n            \"pricePerDay\": \"30\",\n            \"GearItems\": {\n              \"id\": \"18570e10-ba33-4295-847a-a147701fe302\",\n              \"title\": \"Hiking Backpack Pro\",\n              \"description\": \"waterproof hiking backpack\",\n              \"providerId\": \"16ac38e1-66c9-44a9-9a7e-feff2450a29d\"\n            }\n          }\n        ]\n      }\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
