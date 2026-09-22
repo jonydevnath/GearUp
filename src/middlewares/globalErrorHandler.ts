@@ -10,7 +10,9 @@ export const globalErrorHandler = (
 ) => {
   console.error("Unhandled application error:", err);
 
-  let statusCode: number = err.statusCode || httpStatus.INTERNAL_SERVER_ERROR;
+  let statusCode: number =
+    err.statusCode ||
+    (err instanceof Error ? httpStatus.BAD_REQUEST : httpStatus.INTERNAL_SERVER_ERROR);
   let errorMessage =
     statusCode >= httpStatus.INTERNAL_SERVER_ERROR
       ? "Internal Server Error"
